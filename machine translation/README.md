@@ -22,11 +22,11 @@ python3 train.py data-bin/iwslt14.tokenized.de-en.share \
     --ddp-backend no_c10d \
     --save-interval-updates 10000 --keep-interval-updates 5 \
     | tee -a checkpoints/${cur_save}.txt
-'''
+```
 * Testing Command
 ```
 python3 generate.py data-bin/iwslt14.tokenized.de-en.share --path checkpoints/temp/checkpoint_best.pt --batch-size 128 --beam 5 --remove-bpe > results/checkpoint_best.txt
-'''
+```
 
 
 # License
@@ -38,7 +38,7 @@ The license applies to the pre-trained models as well.
 Please cite as:
 
 ```bibtex
-@inproceedings{jingjingxu,
+@inproceedings{adanorm,
   title = {Understanding and Improving Layer Normalization},
   author = {Xu, Jingjing and Sun, Xu and Zhang, Zhiyuan and Zhao, Guangxiang and Lin, Junyang},
   booktitle = {Proceedings of NeurIPS 2019},
