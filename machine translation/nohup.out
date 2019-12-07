@@ -1,0 +1,391 @@
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 8: --seed: command not found
+Namespace(checkpoint_upper_bound=None, inputs=['checkpoints/deen_transformer_prenorm_km_init'], num_epoch_checkpoints=10, num_update_checkpoints=None, output='checkpoints/deen_transformer_prenorm_km_init/avg_final.pt')
+Traceback (most recent call last):
+  File "average_checkpoints.py", line 135, in <module>
+    main()
+  File "average_checkpoints.py", line 125, in main
+    args.inputs, num, is_update_based, upper_bound=args.checkpoint_upper_bound,
+  File "average_checkpoints.py", line 72, in last_n_checkpoints
+    files = os.listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'checkpoints/deen_transformer_prenorm_km_init'
+baseline-prenorm.sh: line 21: results/deen_transformer_prenorm_km_init_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 22: results/deen_transformer_prenorm_km_init_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 30: --seed: command not found
+Namespace(checkpoint_upper_bound=None, inputs=['checkpoints/deen_transformer_prenorm'], num_epoch_checkpoints=10, num_update_checkpoints=None, output='checkpoints/deen_transformer_prenorm/avg_final.pt')
+Traceback (most recent call last):
+  File "average_checkpoints.py", line 135, in <module>
+    main()
+  File "average_checkpoints.py", line 125, in main
+    args.inputs, num, is_update_based, upper_bound=args.checkpoint_upper_bound,
+  File "average_checkpoints.py", line 72, in last_n_checkpoints
+    files = os.listdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: 'checkpoints/deen_transformer_prenorm'
+baseline-prenorm.sh: line 43: results/deen_transformer_prenorm_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 44: results/deen_transformer_prenorm_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 9: --arch: command not found
+Traceback (most recent call last):
+  File "average_checkpoints.py", line 5, in <module>
+    import torch
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/__init__.py", line 81, in <module>
+    from torch._C import *
+KeyboardInterrupt
+baseline-prenorm.sh: line 21: results/deen_transformer_prenorm_km_init_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 22: results/deen_transformer_prenorm_km_init_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 31: --arch: command not found
+Traceback (most recent call last):
+  File "average_checkpoints.py", line 5, in <module>
+    import torch
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/__init__.py", line 280, in <module>
+    from .functional import *
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/functional.py", line 2, in <module>
+    import torch.nn.functional as F
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/nn/__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F401
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/nn/modules/__init__.py", line 2, in <module>
+    from .linear import Identity, Linear, Bilinear
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 5, in <module>
+    from .. import functional as F
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/nn/functional.py", line 14, in <module>
+    from .._jit_internal import boolean_dispatch, List
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/_jit_internal.py", line 489, in <module>
+    import typing
+  File "/usr/lib/python3.6/typing.py", line 686, in <module>
+    class _Union(_FinalTypingBase, _root=True):
+  File "/usr/lib/python3.6/typing.py", line 790, in _Union
+    @_tp_cache
+  File "/usr/lib/python3.6/typing.py", line 673, in _tp_cache
+    cached = functools.lru_cache()(func)
+  File "/usr/lib/python3.6/functools.py", line 481, in decorating_function
+    return update_wrapper(wrapper, user_function)
+  File "/usr/lib/python3.6/functools.py", line 65, in update_wrapper
+    setattr(wrapper, attr, value)
+KeyboardInterrupt
+baseline-prenorm.sh: line 43: results/deen_transformer_prenorm_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 44: results/deen_transformer_prenorm_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 9: --a: command not found
+Failed to import the site module
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site.py", line 79, in <module>
+    import os
+  File "/usr/lib/python3.6/os.py", line 652, in <module>
+    from _collections_abc import MutableMapping
+  File "/usr/lib/python3.6/_collections_abc.py", line 84, in <module>
+    class Hashable(metaclass=ABCMeta):
+  File "/usr/lib/python3.6/abc.py", line 136, in __new__
+    for name, value in namespace.items()
+  File "/usr/lib/python3.6/abc.py", line 137, in <setcomp>
+    if getattr(value, "__isabstractmethod__", False)}
+KeyboardInterrupt
+baseline-prenorm.sh: line 21: results/deen_transformer_prenorm_km_init_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 22: results/deen_transformer_prenorm_km_init_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-prenorm.sh: line 31: --a: command not found
+Traceback (most recent call last):
+  File "average_checkpoints.py", line 5, in <module>
+    import torch
+  File "/home/xujingjing/.local/lib/python3.6/site-packages/torch/__init__.py", line 81, in <module>
+    from torch._C import *
+KeyboardInterrupt
+baseline-prenorm.sh: line 43: results/deen_transformer_prenorm_avg_final.txt: No such file or directory
+baseline-prenorm.sh: line 44: results/deen_transformer_prenorm_checkpoint_best.txt: No such file or directory
+usage: train.py [-h] [--no-progress-bar] [--log-interval N]
+                [--log-format {json,none,simple,tqdm}]
+                [--tensorboard-logdir DIR] [--tbmf-wrapper] [--seed N] [--cpu]
+                [--fp16] [--memory-efficient-fp16]
+                [--fp16-init-scale FP16_INIT_SCALE]
+                [--fp16-scale-window FP16_SCALE_WINDOW]
+                [--fp16-scale-tolerance FP16_SCALE_TOLERANCE]
+                [--min-loss-scale D]
+                [--threshold-loss-scale THRESHOLD_LOSS_SCALE]
+                [--user-dir USER_DIR] [--empty-cache-freq EMPTY_CACHE_FREQ]
+                [--criterion {cross_entropy,nat_loss,adaptive_loss,masked_lm,sentence_prediction,composite_loss,label_smoothed_cross_entropy,label_smoothed_cross_entropy_with_alignment,legacy_masked_lm_loss,sentence_ranking,binary_cross_entropy}]
+                [--tokenizer {moses,space,nltk}]
+                [--bpe {bert,gpt2,fastbpe,sentencepiece,subword_nmt}]
+                [--optimizer {adagrad,adamax,nag,adadelta,sgd,adam,adafactor}]
+                [--lr-scheduler {inverse_sqrt,cosine,reduce_lr_on_plateau,tri_stage,triangular,polynomial_decay,fixed}]
+                [--task TASK] [--num-workers N]
+                [--skip-invalid-size-inputs-valid-test] [--max-tokens N]
+                [--max-sentences N] [--required-batch-size-multiple N]
+                [--dataset-impl FORMAT] [--train-subset SPLIT]
+                [--valid-subset SPLIT] [--validate-interval N]
+                [--fixed-validation-seed N] [--disable-validation]
+                [--max-tokens-valid N] [--max-sentences-valid N]
+                [--curriculum N] [--distributed-world-size N]
+                [--distributed-rank DISTRIBUTED_RANK]
+                [--distributed-backend DISTRIBUTED_BACKEND]
+                [--distributed-init-method DISTRIBUTED_INIT_METHOD]
+                [--distributed-port DISTRIBUTED_PORT] [--device-id DEVICE_ID]
+                [--distributed-no-spawn] [--ddp-backend {c10d,no_c10d}]
+                [--bucket-cap-mb MB] [--fix-batches-to-gpus]
+                [--find-unused-parameters] [--fast-stat-sync] --arch ARCH
+                [--max-epoch N] [--max-update N] [--clip-norm NORM]
+                [--sentence-avg] [--update-freq N1,N2,...,N_K]
+                [--lr LR_1,LR_2,...,LR_N] [--min-lr LR] [--use-bmuf]
+                [--save-dir DIR] [--restore-file RESTORE_FILE]
+                [--reset-dataloader] [--reset-lr-scheduler] [--reset-meters]
+                [--reset-optimizer] [--optimizer-overrides DICT]
+                [--save-interval N] [--save-interval-updates N]
+                [--keep-interval-updates N] [--keep-last-epochs N] [--no-save]
+                [--no-epoch-checkpoints] [--no-last-checkpoints]
+                [--no-save-optimizer-state]
+                [--best-checkpoint-metric BEST_CHECKPOINT_METRIC]
+                [--maximize-best-checkpoint-metric]
+train.py: error: the following arguments are required: --arch/-a
+baseline-gradnorm-km.sh: 行 26: 语法错误: 未预期的文件结尾
