@@ -1,5 +1,3 @@
-On Building
-、
 
 # Requirements and Installation
 
